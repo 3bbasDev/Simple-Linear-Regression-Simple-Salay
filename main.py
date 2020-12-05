@@ -18,6 +18,11 @@ regression.fit(X_train, Y_train)
 # Predicting Test result
 Y_perdict: object = regression.predict(X_test)
 
+# print predict 1 year experience
+print(regression.predict([[1]]))
+print(regression.coef_)
+print(regression.intercept_)
+
 # Visualising Training
 plot1 = pl.figure(1)
 pl.scatter(X_train, Y_train, color='red')
@@ -34,3 +39,5 @@ pl.title('Salary Vs Experience (Test)')
 pl.xlabel('Years of Experience')
 pl.ylabel('Salary')
 pl.show()
+
+
