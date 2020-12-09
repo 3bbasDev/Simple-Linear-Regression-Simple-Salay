@@ -8,9 +8,11 @@ dataset = pd.read_csv('Salary_Data.csv')
 x = dataset.iloc[:, :-1].values
 y = dataset.iloc[:, -1].values
 
+
+
 # splitting dataset to training and test
 [X_train, X_test, Y_train, Y_test] = train_test_split(x, y, test_size=0.2, random_state=0)
-
+print(len(Y_train))
 # Train simple model by LinearRegression class
 regression: object = LinearRegression()
 regression.fit(X_train, Y_train)
@@ -19,9 +21,14 @@ regression.fit(X_train, Y_train)
 Y_perdict: object = regression.predict(X_test)
 
 # print predict 1 year experience
-print(regression.predict([[1]]))
+
 print(regression.coef_)
 print(regression.intercept_)
+# Y = b0 + b1*X
+# dependent value DV =  intercept_ + ( coef_ * independent value IV)
+# Salary =
+print(regression.predict([[12]]))
+print( (regression.coef_*12) + regression.intercept_)
 
 # Visualising Training
 plot1 = pl.figure(1)
